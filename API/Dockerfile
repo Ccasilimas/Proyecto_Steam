@@ -14,10 +14,10 @@ RUN apt-get update && apt-get install -y curl && \
 # Copiar la aplicación FastAPI y el código Python al contenedor
 COPY . /app
 
-# Definir la variable de entorno del authtoken de ngrok
+# Definir la variable de entorno del authtoken de ngrok 
 ENV NGROK_AUTHTOKEN=2nG3jXxr5bZPfob3SazmDNBZbEf_4YNPg1Hk1sjfReRddNCT5
 
 EXPOSE 80 4040
 
 # Comando para iniciar FastAPI y ngrok
-CMD ["sh", "-c", "uvicorn app.main:app --host 0.0.0.0 --port 80 & ngrok http 80"]
+CMD ["sh", "-c", "uvicorn main:app --host 0.0.0.0 --port 80 & ngrok http 80"] 
