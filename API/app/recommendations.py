@@ -5,9 +5,9 @@ from sklearn.decomposition import PCA
 import gzip
 
 # Cargar los datos y descomprimirlos
-df_games = pd.read_csv('D:/Script/Proyecto/API/Datos/games.csv.gz', compression='gzip')  
-df_users = pd.read_csv('D:/Script/Proyecto/API/Datos/Items.csv.gz', compression='gzip')  
-df_reviews = pd.read_csv('D:/Script/Proyecto/API/Datos/reviews.csv.gz', compression='gzip') 
+df_games = pd.read_csv('/Datos/games.csv.gz', compression='gzip')  
+df_users = pd.read_csv('/Datos/Items.csv.gz', compression='gzip')  
+df_reviews = pd.read_csv('/Datos/reviews.csv.gz', compression='gzip') 
 
 # Calcular TF-IDF
 tfidf_vectorizer = TfidfVectorizer()
