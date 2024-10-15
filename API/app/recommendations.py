@@ -10,8 +10,8 @@ db = next(get_db())
 
 # Cargar los datos y descomprimirlos
 df_games = pd.read_sql(db.query(Game).statement, db.bind)
-df_users = pd.read_sql(db.query(User).statement, db.bind)
-df_reviews = pd.read_sql(db.query(Review).statement, db.bind)
+df_users = pd.read_sql(db.query(UserPlaytime).statement, db.bind)
+df_reviews = pd.read_sql(db.query(Reviews).statement, db.bind)
 
 
 # Calcular TF-IDF
