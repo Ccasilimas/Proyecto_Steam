@@ -3,9 +3,9 @@ from fastapi import FastAPI, Depends, HTTPException
 from sqlalchemy import Float
 from sqlalchemy import func, case
 from sqlalchemy.orm import Session
-from database import get_db                                                                         # Conexion a database MYSQL
-from models import Game, UserPlaytime, Reviews  
-from recommendations import recomendacion_juego, recomendacion_usuario                              # Llamado de funciones ML
+from app.database import get_db                                                                         # Conexion a database MYSQL
+from app.models import Game, UserPlaytime, Reviews  
+from app.recommendations import recomendacion_juego, recomendacion_usuario                              # Llamado de funciones ML
 
 app = FastAPI(title="Proyecto Steam")
 
