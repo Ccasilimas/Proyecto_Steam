@@ -3,7 +3,8 @@ from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.decomposition import PCA
 import gzip
-from database import get_db
+from database import get_db                                                                         # Conexion a database MYSQL
+from models import Game, UserPlaytime, Reviews  
 
 db = next(get_db())
 
