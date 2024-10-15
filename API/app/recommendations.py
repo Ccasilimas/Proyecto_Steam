@@ -3,11 +3,15 @@ from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.decomposition import PCA
 import gzip
+from database import get_db
+
+db = next(get_db())
 
 # Cargar los datos y descomprimirlos
-df_games = pd.read_csv('/opt/render/project/src/API/app/Datos/games.csv.gz', compression='gzip')  
-df_users = pd.read_csv('/opt/render/project/src/API/app/Datos/Items.csv.gz', compression='gzip')  
-df_reviews = pd.read_csv('/opt/render/project/src/API/app/Datos/reviews.csv.gz', compression='gzip') 
+df_games = pd.read_sql(db.query(Game).statement, db)
+df_users = pd.read_sql(db.query(User).statement, db)
+df_reviews = pd.read_sql(db.query(Review).statement, db)
+
 
 # Calcular TF-IDF
 tfidf_vectorizer = TfidfVectorizer()
@@ -38,7 +42,7 @@ def recomendacion_usuario(user_id):
     
         user_games = df_users[df_users['user_id'] == user_id]['item_id'].tolist()                                   # Obtener los juegos jugados por el usuario
 
-# Inicializamos una lista para recomendaciones
+        # Inicializamos una lista para recomendaciones
         recommended_titles = []
         if user_games:                                                                                              # Si el usuario ha jugado juegos Obtener géneros de estos juegos
             genres = df_games[df_games['id'].isin(user_games)]['genres'].tolist()
