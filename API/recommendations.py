@@ -24,7 +24,7 @@ tfidf_matrix = tfidf_vectorizer.fit_transform(df_games['genres'].astype('str'))
 # Reducir la dimensionalidad con PCA
 n_components = 32  
 pca = PCA(n_components=n_components)
-reduced_matrix = pca.fit_transform(tfidf_matrix.toarray())
+reduced_matrix = pca.fit_transform(tfidf_matrix.toarray().astype(np.float32))  # Convertir a float32
 
 # Calcular similitud del coseno en la matriz reducida
 cosine_sim = cosine_similarity(reduced_matrix, reduced_matrix)
@@ -32,7 +32,7 @@ cosine_sim = cosine_similarity(reduced_matrix, reduced_matrix)
 def recomendacion_juego(game_id):
     try:
         idx = df_games.index[df_games['id'] == game_id].tolist()[0]
-        sim_scores = np.array(list(enumerate(cosine_sim[idx])))  # Usar numpy aquí
+        sim_scores = np.array(list(enumerate(cosine_sim[idx])), dtype=np.float32)  # Usar numpy aquí con float32
         sim_scores = np.array(sorted(sim_scores, key=lambda x: x[1], reverse=True))[:5]  # Top 5
         game_indices = sim_scores[:, 0].astype(int)
         return df_games.iloc[game_indices]['title'].to_list()
@@ -51,7 +51,7 @@ def recomendacion_usuario(user_id):
         if genres:
             genres_df = pd.DataFrame({'genres': genres})
             tfidf_matrix_user = tfidf_vectorizer.transform(genres_df['genres'].astype('str'))
-            reduced_matrix_user = pca.transform(tfidf_matrix_user.toarray())  # Usar np.array si es necesario
+            reduced_matrix_user = pca.transform(tfidf_matrix_user.toarray().astype(np.float32))  # Convertir a float32
             user_cosine_sim = cosine_similarity(reduced_matrix_user, reduced_matrix)  # Similitud con todos los juegos
 
             recommended_indices = user_cosine_sim.argsort(axis=1)[:, -5:]  # Obtener los índices de los 5 más recomendados

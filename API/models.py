@@ -32,10 +32,8 @@ class Reviews(Base):
 
     id_review = Column(Integer, primary_key=True, autoincrement=True)                                           # Clave primaria
     item_id = Column(Integer, ForeignKey("games.id"))                                                           # Clave foránea de 'games'
-    
     recommend = Column(Boolean)
     sentiment_analysis = Column(Integer)
-
     game = relationship("Game", back_populates="reviews")                                                       # Relación inversa
 
     def __repr__(self):
