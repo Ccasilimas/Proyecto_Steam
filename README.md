@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Descripción del Proyecto
 
 Este proyecto desarrolla una API RESTful utilizando FastAPI, que permite consumir información sobre videojuegos, reseñas de usuarios y análisis de sentimiento para mejorar la toma de decisiones de las empresas. La API también soporta un sistema de recomendación basado en la similitud entre ítems o usuarios.
@@ -79,7 +79,6 @@ Se implementaron dos enfoques:
 - **Recomendación Item-Item**: Basado en la similitud del coseno entre juegos. Ingresando el ID de un producto, se devuelven 5 juegos similares recomendados.
 - **Recomendación User-Item**: Usando un filtro colaborativo basado en la similitud entre usuarios. Ingresando el ID de un usuario, se recomiendan 5 juegos que a usuarios similares les han gustado.
 
-<<<<<<< HEAD
 ### Despliegue
 =======
 /best_developer_year: Proporciona el top 3 de desarrolladores con juegos más recomendados por los usuarios en un año determinado.
@@ -94,5 +93,4 @@ Recomendación Item-Item: Basado en la similitud del coseno entre juegos. Ingres
 Recomendación User-Item: Usando un filtro colaborativo basado en la similitud entre usuarios. Ingresando el ID de un usuario, se recomiendan 5 juegos que a usuarios similares les han gustado.
 
 Despliegue
->>>>>>> 1e87374488c2b4866937db1b9236b0f3804595b1
 Se propone el uso de plataformas como Ngrok para el despliegue.
