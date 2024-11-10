@@ -1,4 +1,4 @@
-![Descripción de la imagen](img/Header.png)
+![Descripción de la imagen](img/Header.jpg)
 
 # Descripción del Proyecto
 
