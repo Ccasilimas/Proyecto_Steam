@@ -11,7 +11,7 @@ def memory_usage():
     process = psutil.Process()
     mem = process.memory_info().rss / (1024 ** 2)  # en MB
     return mem
-
+ 
 # Cargar los datos y descomprimirlos
 df_games = pd.read_csv('app/Datos/games.csv.gz', compression='gzip')  
 df_users = pd.read_csv('app/Datos/Items.csv.gz', compression='gzip')  
