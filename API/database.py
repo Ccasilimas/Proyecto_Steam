@@ -1,10 +1,15 @@
 # database.py
+import os
 from sqlalchemy import create_engine, MetaData
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
+from dotenv import load_dotenv
+
+# Cargar las variables de entorno desde el archivo .env
+load_dotenv()
 
 # Configuración de la base de datos
-DATABASE_URL = "mysql+pymysql://camilo:camilo_password@35.226.92.249:3306/steam"
+DATABASE_URL = os.getenv("DATABASE_URL")
 
 # Crear el motor de la base de datos y la sesión
 engine = create_engine(DATABASE_URL)

@@ -1,3 +1,5 @@
+![Descripción de la imagen](img/Header.png)
+
 # Descripción del Proyecto
 
 Este proyecto desarrolla una API RESTful utilizando FastAPI, que permite consumir información sobre videojuegos, reseñas de usuarios y análisis de sentimiento para mejorar la toma de decisiones de las empresas. La API también soporta un sistema de recomendación basado en la similitud entre ítems o usuarios.
