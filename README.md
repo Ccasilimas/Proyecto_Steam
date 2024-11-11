@@ -1,46 +1,82 @@
-# "Sistema de Recomendación y Análisis de Videojuegos con FastAPI"
+# Video Game Recommendation and Analysis System with FastAPI
 
-![Descripción de la imagen](img/Header.jpg)
+![Project Image](img/Header.jpg)
 
-# Descripción del Proyecto
+## Project Description
 
-Este proyecto desarrolla una API RESTful utilizando FastAPI, que permite consumir información sobre videojuegos, reseñas de usuarios y análisis de sentimiento para mejorar la toma de decisiones de las empresas. La API también soporta un sistema de recomendación basado en la similitud entre ítems o usuarios.
+This project develops a RESTful API using **FastAPI**, which enables the consumption of information about video games, user reviews, and sentiment analysis to improve business decision-making. The API also includes a recommendation system based on item or user similarity.
 
-## MVP Incluye
+### MVP Features:
+- **Data Processing and Dataset Preparation**: Data cleaning and consolidation.
+- **Sentiment Analysis**: Transform user reviews into a scale of values (0 = bad, 1 = neutral, 2 = positive) using NLP (Natural Language Processing) techniques.
+- **Exploratory Data Analysis (EDA)**: Identify patterns and relationships among variables in the dataset.
+- **API Deployment**: Create endpoints for specific queries related to games, users, developers, and review analysis.
+- **Recommendation System**:
+  - **Item-Item**: Based on cosine similarity between games.
+  - **User-Item**: Collaborative filtering using user similarity.
 
-1. **Procesamiento de Datos y Preparación del Dataset**: Limpieza y consolidación de datos.
-2. **Análisis de Sentimiento**: Transformación de reseñas de usuarios en una escala de valores (0 = malo, 1 = neutral, 2 = positivo) utilizando técnicas de NLP (Procesamiento de Lenguaje Natural).
-3. **Exploratory Data Analysis (EDA)**: Detección de patrones y relaciones entre variables del dataset.
-4. **Despliegue de la API**: Creación de endpoints para consultas específicas sobre juegos, usuarios, desarrolladores y análisis de reseñas.
-5. **Sistema de Recomendación**: Implementación de dos enfoques de recomendación de videojuegos: 
-   - **Item-Item**: Basado en la similitud de coseno entre juegos.
-   - **User-Item**: Usando filtro colaborativo basado en la similitud entre usuarios.
+## Project Structure and Transformations:
+- **Data Optimization**: Remove unnecessary columns to enhance API performance and model training efficiency.
+- **Sentiment Analysis Column**: Replace user review text (`user_reviews.review`) with a numerical sentiment score. Reviews with no text are given a neutral value of 1.
 
-## Estructura del Proyecto
+### Feature Engineering:
+- Transform user reviews into a numeric column (`sentiment_analysis`) for model input.
 
-### Transformaciones
-- Eliminación de columnas innecesarias para optimizar la API y el entrenamiento de modelos de machine learning.
-- Implementación de la columna `sentiment_analysis`, que reemplaza el texto de las reseñas (`user_reviews.review`). Si una reseña no tiene texto, se le asigna automáticamente un valor de 1.
+### Exploratory Data Analysis (EDA):
+- Detect variable patterns and outliers.
+- Create word clouds to identify common terms in game titles.
 
-### Feature Engineering
-- Transformación de reseñas en una columna numérica (`sentiment_analysis`) para facilitar la entrada de datos a los modelos.
+## RESTful API Overview:
+Endpoints developed using **FastAPI** and accessible via any device connected to the internet:
 
-### Exploratory Data Analysis (EDA)
-- Identificación de patrones y outliers en las variables.
-- Generación de nubes de palabras para identificar términos frecuentes en títulos de juegos.
+- **/developer**: Returns the number of items and percentage of free content per year for a given developer.
+- **/userdata**: Provides user data including total spending, recommendation rate based on reviews, and number of items.
+- **/UserForGenre**: Finds the user with the most accumulated play hours in a specific genre, including hourly distribution by release year.
+- **/best_developer_year**: Lists the top 3 developers with the most user-recommended games in a specified year.
+- **/developer_reviews_analysis**: Analyzes review sentiment (positive/negative) for a given developer.
 
-### API RESTful
-Se desarrollaron varios endpoints con FastAPI, accesibles desde cualquier dispositivo conectado a internet:
-- `/developer`: Devuelve la cantidad de ítems y el porcentaje de contenido gratuito por año, según la desarrolladora.
-- `/userdata`: Retorna información sobre el gasto total, porcentaje de recomendación basado en reseñas, y cantidad de ítems de un usuario.
-- `/UserForGenre`: Devuelve el usuario que ha acumulado más horas jugadas para un género específico y su acumulación de horas por año de lanzamiento.
-- `/best_developer_year`: Proporciona el top 3 de desarrolladores con juegos más recomendados por los usuarios en un año determinado.
-- `/developer_reviews_analysis`: Devuelve un análisis de las reseñas por sentimiento (positivo/negativo) para un desarrollador en específico.
+## Recommendation System:
+Two approaches for video game recommendations:
+- **Item-Item Recommendation**: Utilizes cosine similarity between games. Input a product ID to get 5 similar game recommendations.
+- **User-Item Recommendation**: Employs collaborative filtering based on user similarity. Input a user ID to get 5 games liked by similar users.
 
-### Sistema de Recomendación
-Se implementaron dos enfoques:
-- **Recomendación Item-Item**: Basado en la similitud del coseno entre juegos. Ingresando el ID de un producto, se devuelven 5 juegos similares recomendados.
-- **Recomendación User-Item**: Usando un filtro colaborativo basado en la similitud entre usuarios. Ingresando el ID de un usuario, se recomiendan 5 juegos que a usuarios similares les han gustado.
+## Deployment:
+- Deployment using **Ngrok** for easy access.
 
-### Despliegue
-Se propone el uso de plataformas como Ngrok para el despliegue.
+## About:
+A RESTful API built with **FastAPI** that processes and transforms data related to Steam games and offers a machine learning-based recommendation system. The API provides endpoints for game data retrieval, review analysis, and personalized recommendations.
+
+### Topics:
+- Python
+- Data Science
+- Machine Learning
+- Machine Learning Algorithms
+
+### Resources:
+- **Readme**
+
+### License:
+- **GPL-3.0 License**
+
+## Project Stats:
+- **Activity**: 0 stars, 1 watching, 0 forks
+- **Releases**: No releases published
+- **Packages**: No packages published
+
+### Languages Used:
+- Python (97.9%)
+- Cython (0.8%)
+- C++ (0.6%)
+- HTML (0.3%)
+- Jupyter Notebook (0.2%)
+- PowerShell (0.1%)
+- Other (0.1%)
+
+## Suggested Workflows:
+- **Python Package**: Create and test a Python package across multiple Python versions.
+- **Publish Python Package**: Release a Python package to PyPI.
+- **Docker Image**: Build, deploy, and push a Docker image to a registry.
+
+---
+
+© 2024 GitHub, Inc.
