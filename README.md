@@ -57,26 +57,3 @@ A RESTful API built with **FastAPI** that processes and transforms data related 
 
 ### License:
 - **GPL-3.0 License**
-
-## Project Stats:
-- **Activity**: 0 stars, 1 watching, 0 forks
-- **Releases**: No releases published
-- **Packages**: No packages published
-
-### Languages Used:
-- Python (97.9%)
-- Cython (0.8%)
-- C++ (0.6%)
-- HTML (0.3%)
-- Jupyter Notebook (0.2%)
-- PowerShell (0.1%)
-- Other (0.1%)
-
-## Suggested Workflows:
-- **Python Package**: Create and test a Python package across multiple Python versions.
-- **Publish Python Package**: Release a Python package to PyPI.
-- **Docker Image**: Build, deploy, and push a Docker image to a registry.
-
----
-
-© 2024 GitHub, Inc.
